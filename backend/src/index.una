@@ -6,8 +6,15 @@
 application.get '/'
   -> (request response) (response.sendStatus 200)
 
-application.get '/user/:id'
-  -> (request response) (response.send (database.getUserById request.params.id))  
+application.get '/tasks'
+  -> (request response) 
+    response.send 
+      database.getTasks ()
+
+application.post '/tasks'
+  -> (request response) 
+    database.addTask(request.body.task)
+    response.send 201
 
 = port 3000
 application.listen port

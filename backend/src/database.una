@@ -1,7 +1,12 @@
-= users :
-  a1 'Alice'
-  b2 'Bob'
-  c3 'Chris'
+= tasks ::
+  : (id 1) (name 'Buy bread')
+  : (id 2) (name 'Paint the wall')
+
+= addTask -> task
+  tasks.push task
+  
+= getTasks -> () tasks
 
 <-= :
-  getUserById (-> (id) (. users id))
+  addTask
+  getTasks 

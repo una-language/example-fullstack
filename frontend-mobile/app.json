@@ -1,9 +1,9 @@
 {
-  "name": "mobile-app",
-  "displayName": "mobile-app",
+  "name": "example-react-native",
+  "displayName": "example-react-native",
   "expo": {
-    "name": "mobile-app",
-    "slug": "mobile-app",
+    "name": "example-react-native",
+    "slug": "example-react-native",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
