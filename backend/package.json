@@ -1,0 +1,30 @@
+{
+  "name": "example-express",
+  "version": "1.0.0",
+  "description": "Express server application example written in Una",
+  "main": "src",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.13.16",
+    "@babel/core": "7.14.0",
+    "@babel/node": "7.13.13",
+    "babel-plugin-una-language": "1.0.1",
+    "una-language": "0.3.1"
+  },
+  "scripts": {
+    "build": "babel src -d build --extensions .una",
+    "start": "babel-node --extensions .una src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/una-language/example-express.git"
+  },
+  "author": "Sergey Shpadyrev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/una-language/example-express/issues"
+  },
+  "homepage": "https://github.com/una-language/example-express#readme"
+}
