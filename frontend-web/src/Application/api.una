@@ -1,0 +1,15 @@
+= addTask -> task
+  fetch
+   'http://localhost:3001/tasks'
+   : 
+     method 'POST'
+     body (JSON.stringify task)
+
+= fetchTasks --> () 
+  = response <-- (fetch 'http://localhost:3001/tasks')
+  response.json ()
+
+<-= :
+  addTask
+  fetchTasks 
+  

@@ -1,5 +1,5 @@
 =-> './index.css'
-=-> './App' App
+=-> './Application' Application
 =-> 'react' React
 =-> 'react-dom' ReactDOM
 =-> './reportWebVitals' reportWebVitals 
@@ -8,7 +8,7 @@
 
 ReactDOM.render
   e React.StrictMode :
-    e App :
+    e Application :
   document.getElementById 'root' 
 
 reportWebVitals ()

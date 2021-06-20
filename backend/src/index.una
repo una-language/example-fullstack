@@ -1,7 +1,11 @@
+=-> 'body-parser' bodyParser
+=-> 'cors' cors
 =-> './database' database
 =-> 'express' express
 
 = application express ()
+application.use (bodyParser.json ())
+application.use (cors ())
 
 application.get '/'
   -> (request response) (response.sendStatus 200)
@@ -16,6 +20,6 @@ application.post '/tasks'
     database.addTask(request.body.task)
     response.send 201
 
-= port 3000
+= port 3001
 application.listen port
   -> () (console.log 'Application is listening on port:' port)

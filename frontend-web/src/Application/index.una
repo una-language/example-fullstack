@@ -1,0 +1,21 @@
+=-> './index.css'
+=-> './api' api
+=-> 'react' React
+
+= (: (createElement e)) React
+
+= App -> ()
+  = (:: tasks setTasks) (React.useState ::)
+  
+  React.useEffect 
+    -> ()
+      = fetchData --> ()
+        = fetchedTasks <-- (api.fetchTasks ())
+        setTasks fetchedTasks
+      fetchData ()
+
+  e 'div' :
+    (JSON.stringify tasks)
+
+<-= App
+
