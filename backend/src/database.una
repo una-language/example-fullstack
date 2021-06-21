@@ -1,12 +1,22 @@
-= tasks ::
-  : (id 1) (name 'Buy bread')
-  : (id 2) (name 'Paint the wall')
+=-> 'uuid' (: (v4 uuid))
 
-= addTask -> task
-  tasks.push task
+= tasks ::
+  : (id (uuid ())) (name 'Buy bread')
+  : (id (uuid ())) (name 'Paint the wall')
+
+= addTask -> name
+  = createdTask (: (id uuid()) name) 
+  tasks.push createdTask
+  createdTask
   
 = getTasks -> () tasks
+
+= removeTask -> taskId
+  tasks.splice
+    tasks.findIndex (-> task (== task.id taskId))
+    1
 
 <-= :
   addTask
   getTasks 
+  removeTask

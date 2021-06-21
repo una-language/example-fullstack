@@ -4,8 +4,10 @@
 =-> 'express' express
 
 = application express ()
-application.use (bodyParser.json ())
+
 application.use (cors ())
+application.use (express.urlencoded (: (extended true)))
+application.use (express.json ())
 
 application.get '/'
   -> (request response) (response.sendStatus 200)
@@ -17,7 +19,12 @@ application.get '/tasks'
 
 application.post '/tasks'
   -> (request response) 
-    database.addTask(request.body.task)
+    = task (database.addTask request.body.name)
+    response.send task
+
+application.delete '/tasks/:taskId'
+  -> (request response) 
+    database.removeTask request.params.taskId
     response.send 201
 
 = port 3001

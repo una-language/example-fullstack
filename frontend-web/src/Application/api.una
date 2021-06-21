@@ -1,15 +1,26 @@
-= addTask -> task
-  fetch
-   'http://localhost:3001/tasks'
-   : 
-     method 'POST'
-     body (JSON.stringify task)
+= addTask --> name
+  = response <--
+    fetch
+      'http://localhost:3001/tasks'
+      : 
+        method 'POST'
+        body (JSON.stringify (: name))
+        headers :
+          'Content-Type' 'application/json'
+  response.json ()
 
 = fetchTasks --> () 
   = response <-- (fetch 'http://localhost:3001/tasks')
   response.json ()
 
+= removeTask -> taskId
+  fetch
+   ` ('http://localhost:3001/tasks/${0}' taskId)
+   : (method 'DELETE')
+  
+
 <-= :
   addTask
   fetchTasks 
+  removeTask
   

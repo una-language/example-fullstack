@@ -6,16 +6,42 @@
 
 = App -> ()
   = (:: tasks setTasks) (React.useState ::)
+  = (:: inputValue setInputValue) (React.useState '')
   
   React.useEffect 
     -> ()
       = fetchData --> ()
         = fetchedTasks <-- (api.fetchTasks ())
-        setTasks fetchedTasks
+        setTasks fetchedTasks        
       fetchData ()
+    :: setTasks
 
-  e 'div' :
-    (JSON.stringify tasks)
+  = addTask --> ()
+    = task <-- (api.addTask inputValue)
+    setTasks (:: ...tasks task)
+    setInputValue ''
+
+  = removeTask -> taskId
+    api.removeTask taskId
+    setTasks (tasks.filter (-> task (!= task.id taskId)))
+
+  e 'div' (: (className 'container'))
+    e 'div' :
+      tasks.map 
+        -> task
+          e 'div' (: (key task.id) (className 'task')) 
+            e 'div' (: (className 'taskCheckmark') (onClick (-> () (removeTask task.id)))) 
+            e 'div' (: (className 'taskName')) task.name 
+    e 'div' (: (className 'taskCreationContainer'))
+      e 'input' 
+        :
+          onChange (-> event (setInputValue event.target.value))
+          value inputValue
+      e 'div' 
+        : 
+          className 'taskCreationButton'
+          onClick addTask
+        'CREATE'
 
 <-= App
 
