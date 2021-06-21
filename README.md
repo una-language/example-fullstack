@@ -1,7 +1,9 @@
 # Fullstack example
 
-Fullstack TODO-app example in Una
+Fullstack TODO-app example in Una.
 
-[Backend](backend)
-[Frontend Mobile](frontend-mobile)
-[Frontend Web](frontend-web)
+[Backend](backend) <br/>
+[Frontend Mobile](frontend-mobile) <br/>
+[Frontend Web](frontend-web) <br/>
+
+First run the backend, then run the web frontend and/or the mobile frontend
