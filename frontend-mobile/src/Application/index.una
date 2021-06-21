@@ -1,0 +1,47 @@
+=-> './api' api
+=-> 'react' React
+=-> './style' S
+
+= (: (createElement e)) React
+
+= App -> ()
+  = (:: tasks setTasks) (React.useState ::)
+  = (:: inputValue setInputValue) (React.useState '')
+  
+  React.useEffect 
+    -> ()
+      = fetchData --> ()
+        = fetchedTasks <-- (api.fetchTasks ())
+        setTasks fetchedTasks        
+      fetchData ()
+      undefined
+    :: setTasks
+
+  = addTask --> ()
+    = task <-- (api.addTask inputValue)
+    setTasks (:: ...tasks task)
+    setInputValue ''
+
+  = removeTask -> taskId
+    api.removeTask taskId
+    setTasks (tasks.filter (-> task (!= task.id taskId)))
+
+  e S.Container :
+    e S.TasksContainer :
+      tasks.map 
+        -> task
+          e S.Task (: (key task.id)) 
+            e S.TaskCheckmark (: (onPress (-> () (removeTask task.id)))) 
+            e S.TaskName : task.name 
+    e S.TaskCreationContainer :
+      e S.TaskCreationInput 
+        :
+          onChangeText (-> text (setInputValue text))
+          value inputValue
+      e S.TaskCreationButton 
+        :          
+          onPress addTask
+        'CREATE'
+
+<-= App
+

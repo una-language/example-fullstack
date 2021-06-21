@@ -1,0 +1,53 @@
+=-> 'styled-components' styled
+
+<-= :
+  Container 
+    ` styled.View
+      'align-items: center;'
+      'display: flex;'
+      'flex: 1;'
+      'flex-direction: column;'
+      'justify-content: center;'
+  Task ` styled.View
+      'align-items: center;'
+      'display: flex;'
+      'flex-direction: row;'
+      'margin-top: 10px;'
+  TaskCheckmark 
+    ` styled.TouchableOpacity
+      'border-color: black;'
+      'border-width: 1px;'
+      'height: 20px;'
+      'width: 20px;'
+  TaskCreationButton 
+    ` styled.Text
+      'font-size: 24px;'
+      'font-weight: bold;'
+      'margin-top: 10px;'
+  TaskCreationContainer 
+    ` styled.View
+      'align-items: center;'
+      'border-color: black;'
+      'border-width: 1px;'
+      'display: flex;'
+      'flex-direction: column;'
+      'margin-top: 30px;'
+      'padding: 20px;'
+  TaskCreationInput 
+    ` styled.TextInput
+      'border-color: black;'
+      'border-bottom-width: 1px;'
+      'width: 200px;'
+  TaskName 
+    ` styled.Text
+      'font-size: 20px;'
+      'margin-left: 10px;'
+  TasksContainer 
+    ` styled.View
+      'border-color: black;'
+      'border-width: 1px;'
+      'padding: 20px;'
+  Square ` styled.View
+    'background-color: red;'
+    'height: 40px;'
+    'width: 40px;'
